@@ -29,17 +29,27 @@ function playGame() {
         }
         else if ((humanChoice == "Rock") && (ComputerChoice == "Scissors") || (humanChoice == "Paper") && (ComputerChoice == "Rock") || (humanChoice == "Scissors") && (ComputerChoice == "Paper")) {
             console.log("You win! " + humanChoice + " beats " + ComputerChoice);
+            humanScore++;
         }
         else {
             console.log("You lose! " + ComputerChoice + " beats " + humanChoice);
+            computerScore++;
         }
     }
-
     for (let i = 0; i < 5; i++) {
         roundResult = playRound(getHumanChoice(), getComputerChoice());
     }
+    console.log("Final score - Human: " + humanScore + ". Computer: " + computerScore);
+    if (humanScore == computerScore) {
+        console.log("Stalemate!");
+    }
+    else if (humanScore > computerScore) {
+        console.log("Human wins!");
+    }
+    else {
+        console.log("Computer wins!");
+    }
 }
-
 
 playGame();
 
