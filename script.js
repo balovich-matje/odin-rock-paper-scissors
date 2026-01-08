@@ -1,19 +1,21 @@
 function getComputerChoice() {
     let rand = Math.floor(Math.random() * 100) + 1;
     if (rand <= 33) {
-        return "rock";
+        return "Rock";
     }
     else if ((rand >= 34) && (rand <= 67)) {
-        return "paper";
+        return "Paper";
     }
     else {
-        return "scissors";
+        return "Scissors";
     }
 
 }
 
 function getHumanChoice() {
     let choice = prompt("Choose, Neo: rock, paper or scissors?");
+    choice = choice.toLowerCase();
+    choice = (choice.charAt(0)).toUpperCase() + choice.slice(1);
     return choice;
 }
 
@@ -23,11 +25,11 @@ function playRound(humanChoice, ComputerChoice) {
     }
     else if ((humanChoice == "rock") && (ComputerChoice == "scissors") || (humanChoice == "paper") && (ComputerChoice == "rock") || (humanChoice == "scissors") && (ComputerChoice == "paper")) {
         humanScore++;
-        console.log("You win!" + humanChoice + " beats " + ComputerChoice);
+        console.log("You win! " + humanChoice + " beats " + ComputerChoice);
     }
     else {
         computerScore++;
-        console.log("You lose!" + ComputerChoice + " beats " + humanChoice);
+        console.log("You lose! " + ComputerChoice + " beats " + humanChoice);
     }
 }
 
